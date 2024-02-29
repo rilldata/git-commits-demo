@@ -12,7 +12,7 @@ fi
 if [[ "$repo" == https://* ]] || [[ "$repo" == *github* ]]; then
     temp_dir=$(mktemp -d)
     cd "$temp_dir"
-    echo "Cloning repository into temporary directory $temp_dir/$repo..."
+    echo "Cloning repository into temporary directory $repo..."
     git clone "$repo"
     reponame=$(basename "$repo")
     repo="$temp_dir/${reponame%.git}"

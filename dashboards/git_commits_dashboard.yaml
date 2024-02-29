@@ -1,7 +1,7 @@
 # Visit https://docs.rilldata.com/reference/project-files to learn more about Rill project files.
 # This file was generated using AI.
 
-title: Metrics for File Changes Analysis
+title: Git Commit Analysis
 table: file_changes
 timeseries: time
 dimensions:

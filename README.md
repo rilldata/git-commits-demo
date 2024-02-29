@@ -22,13 +22,13 @@ curl https://rill.sh | sh
 
 
 ## Steps to run Rill Demo
-Note: Run below steps from root directory of this repo. 
+Note: Run below steps from root directory of this repo.
 
-Step 1: Import data for your github repo  
+Step 1: Import data for your github repository
 ```bash
 scripts/data-import.sh git@github.com:ClickHouse/ClickHouse.git
 ```
-Change the repo url to use your own repo. 
+Change the repo url to use your own repo.
  
 Step 2: Start rill (Assumes clickhouse is running on localhost:9000)
 ```bash
