@@ -8,7 +8,17 @@ if [ -z "$repo" ]; then
     # If no argument provided, use the current directory
     repo=$(pwd)
 fi
-reponame=$(basename "repo")
+# Check if repo name starts with https:// or contains github
+if [[ "$repo" == https://* ]] || [[ "$repo" == *github* ]]; then
+    temp_dir=$(mktemp -d)
+    cd "$temp_dir"
+    echo "Cloning repository into temporary directory $temp_dir/$repo..."
+    git clone "$repo"
+    reponame=$(basename "$repo")
+    repo="$temp_dir/${reponame%.git}"
+fi
+
+
 # Generate TSV files for repository data
 cd $repo && clickhouse git-import --skip-paths 'generated\.cpp|^(contrib|docs?|website|libs/(libcityhash|liblz4|libdivide|libvectorclass|libdouble-conversion|libcpuid|libzstd|libfarmhash|libmetrohash|libpoco|libwidechar_width))/' --skip-commits-with-messages '^Merge branch '
 
